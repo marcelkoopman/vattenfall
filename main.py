@@ -2,6 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 df = pd.read_csv("data/mijn-meterstanden.csv", encoding = "ISO-8859-1")
 df['Stroom'] = df['Stroom 1 (kWh)'] + df['Stroom 2 (kWh)']
+df.info()
+df = df.query('Stroom>0')
 df['Teruglevering'] = df['Teruglevering 1 (kWh)'] + df['Teruglevering 2 (kWh)']
 df['pct_stroom'] = df['Stroom'].pct_change()
 df['pct_teruglevering'] = df['Teruglevering'].pct_change()
