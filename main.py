@@ -4,21 +4,27 @@ import matplotlib.pyplot as plt
 from dataframe.extract import extract_from_csv
 from dataframe.transform import transform_meetdatum, transform_stroom, transform_teruglevering
 
+def jaar_verbruik_2021_kwh():
+    return 2216
+
+def jaar_teruglevering_2021_kwh():
+    return 1513;
+
 def create_dataframe_from_csv():
     df = extract_from_csv()
-    df = transform_meetdatum(df)
+    df = transform_meetdatum(df, start_date = '2022-05-26')
     df = transform_stroom(df)
     df = transform_teruglevering(df)
     # df.info()
 
-    # df['change'] = df['Teruglevering'] - df['Stroom']   
+    # 
     # df['pct_stroom'] = df['Stroom'].pct_change()
     # df['pct_teruglevering'] = df['Teruglevering'].pct_change()
     # df['diff_stroom'] = df['Stroom'].diff().abs()
     # df['diff_teruglevering'] = df['Teruglevering'].diff().abs()
     # df['median_teruglevering'] = df['diff_teruglevering'].median()
-    # df['mean_teruglevering'] = df['diff_teruglevering'].mean()
-    # df['mean_stroom'] = df['diff_stroom'].mean()
+    df['Teruglevering_mean'] = df['Teruglevering_diff'].mean()
+    df['Stroom_mean'] = df['Stroom_diff'].mean()
     return df
 
 def select_maximum(df, column):
@@ -27,12 +33,12 @@ def select_maximum(df, column):
     print(f"Max {column}: {maximmum}")
     return maximmum
 
-df = create_dataframe_from_csv().head(30)
-# select_maximum(df, "Stroom_diff")
-
-# df.info()
+df = create_dataframe_from_csv()
+select_maximum(df, "Teruglevering_diff")
 x = df['Datum']
-plt.plot(x, df['Stroom_diff'], label='Stroom_diff')
-plt.plot(x, df['Teruglevering_diff'], label='Teruglevering_diff')
+plt.plot(x, df['Stroom_diff'], label='Stroomverbruik')
+plt.plot(x, df['Teruglevering_diff'], label='Teruglevering')
+plt.plot(x, df['Teruglevering_mean'], label='Teruglevering gemiddelde')
+plt.plot(x, df['Stroom_mean'], label='Stroomverbruik gemiddelde')
 plt.legend()
 plt.show()
