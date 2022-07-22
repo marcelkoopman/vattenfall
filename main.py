@@ -15,7 +15,7 @@ ch.setFormatter(formatter)
 logger.addHandler(ch)
 
 def create_dataframe_from_csv():
-    df = parse_csv().head(30)
+    df = parse_csv()
     df = parse_and_sort_on_dates(df)
     print(f"{len(df)} gesorteerd")
 
