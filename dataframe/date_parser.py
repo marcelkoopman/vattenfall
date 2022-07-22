@@ -1,6 +1,7 @@
 import pandas as pd
 
 def parse_and_sort_on_dates(df):
+    print(f"0 {len(df)}")
     df['Meetdatum'] = df['Meetdatum'].str.replace(".", "", regex=False)
     print(f"1 {len(df)}")
     df['Datum'] = pd.to_datetime(df['Meetdatum'], format='%d %b %Y')
