@@ -6,10 +6,13 @@ locale.setlocale(locale.LC_ALL, "nl_NL")
 def transform_meetdatum(df, start_date):
     df['Meetdatum'] = df['Meetdatum'].str.replace(".", "", regex=False)
     df['Datum'] = pd.to_datetime(df['Meetdatum'], format='%d %b %Y')
-    ndf = df.sort_values(by=['Datum'], ascending = False)
-    mask = ndf['Datum']>=start_date
-    ndf = ndf[mask]
-    return ndf.drop('Meetdatum', axis='columns')    
+    df = df.sort_values(by=['Datum'], ascending = False)
+    mask = df['Datum']>=start_date
+    df = df[mask]
+    return df.drop('Meetdatum', axis='columns')    
+
+def drop_columns(df):
+    return df.drop(['Gas 1 (m³)', 'Opmerkingen'], axis='columns')
 
 def transform_stroom(df):
     df['Stroom'] = df['Stroom 1 (kWh)'] + df['Stroom 2 (kWh)']
