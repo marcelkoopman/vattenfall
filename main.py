@@ -17,7 +17,7 @@ logger.addHandler(ch)
 def create_dataframe_from_csv():
     df = parse_csv()
     df = parse_and_sort_on_dates(df)
-    print(f"{len(df)} gesorteerd")
+    df.info()
 
     # df['Stroom'] = df['Stroom 1 (kWh)'] + df['Stroom 2 (kWh)']
     # df['Teruglevering'] = df['Teruglevering 1 (kWh)'] + df['Teruglevering 2 (kWh)']
