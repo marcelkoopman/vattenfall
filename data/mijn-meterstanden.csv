@@ -1,4 +1,7 @@
 Meetdatum,Stroom 1 (kWh),Stroom 2 (kWh),Teruglevering 1 (kWh),Teruglevering 2 (kWh),Gas 1 (m³),Opmerkingen
+25 jul. 2022,166,122,420,474,,Smartmeter
+24 jul. 2022,163,122,404,474,,Smartmeter
+23 jul. 2022,160,122,389,474,,Smartmeter
 22 jul. 2022,159,120,389,468,,Smartmeter
 21 jul. 2022,158,115,389,461,,Smartmeter
 20 jul. 2022,157,114,388,440,,Smartmeter
@@ -58,7 +61,7 @@ Meetdatum,Stroom 1 (kWh),Stroom 2 (kWh),Teruglevering 1 (kWh),Teruglevering 2 (k
 27 mei 2022,61,3,171,1,,Smartmeter
 26 mei 2022,58,3,158,1,,Smartmeter
 10 mei 2022,0,0,0,0,,Inbouwstand
-9 mei 2022,8.785,11.840,1.006,2.092,9.442,Smartmeter
+9 mei 2022,8.785,11.840,1.006,2.092,9.442,Uitbouwstand
 8 mei 2022,8.780,11.840,997,2.092,9.441,Smartmeter
 7 mei 2022,8.777,11.840,990,2.092,9.441,Smartmeter
 6 mei 2022,8.775,11.835,990,2.085,9.440,Smartmeter
@@ -189,7 +192,7 @@ Meetdatum,Stroom 1 (kWh),Stroom 2 (kWh),Teruglevering 1 (kWh),Teruglevering 2 (k
 1 jan. 2022,8.173,10.768,901,1.913,9.003,Smartmeter
 31 dec. 2021,8.171,10.746,901,1.913,9.002,Smartmeter
 30 dec. 2021,8.169,10.723,901,1.913,8.997,Smartmeter
-29 dec. 2021,8.168,10.707,901,1.913,8.994,Jaarafrekening
+29 dec. 2021,8.168,10.707,901,1.913,8.994,Smartmeter
 28 dec. 2021,8.165,10.678,901,1.913,8.988,Smartmeter
 27 dec. 2021,8.163,10.646,901,1.913,8.982,Smartmeter
 26 dec. 2021,8.124,10.646,901,1.913,8.977,Smartmeter
