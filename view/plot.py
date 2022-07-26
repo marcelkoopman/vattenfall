@@ -1,13 +1,26 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def plot_meterstanden_bar(df):
+def plot_meterstanden_line(df):
     plt.rcdefaults()
-    fig, ax = plt.subplots()
-    x = df['Datum']
-    ax.barh(x, df['Teruglevering_diff'], color='yellow')
-    ax.barh(x, df['Stroom_diff'],  color='blue')
-    ax.invert_yaxis()  
-    ax.yaxis_date()
+    datum = df['Datum']
+    stroom = df['Stroom_diff']
+    terug = df['Teruglevering_diff']
+
+    fig, ax = plt.subplots(figsize=(8, 8))
+    ax.plot(datum, stroom)
+    ax.plot(datum, terug)
+
+    ax.fill_between(
+        datum, stroom, terug, where=(terug >= stroom), 
+        interpolate=True, color="green", alpha=0.25, 
+        label="Positief"
+    )
+
+    ax.fill_between(
+        datum, stroom, terug, where=(stroom > terug), 
+        interpolate=True, color="red", alpha=0.25, 
+        label="Negatief"
+    )
     ax.legend()
     plt.show()

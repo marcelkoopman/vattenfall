@@ -2,7 +2,7 @@ from lib2to3.pgen2.pgen import DFAState
 import pandas as pd
 from dataframe.extract import extract_from_csv
 from dataframe.transform import transform_meetdatum, transform_stroom, transform_teruglevering, drop_columns
-from view.plot import plot_meterstanden_bar
+from view.plot import plot_meterstanden_line
 
 def create_dataframe_from_csv():
     df = extract_from_csv()
@@ -33,4 +33,4 @@ df.to_csv('data/transformed.csv', index=False)
 df.set_index('Datum')
 print(df)
 
-plot_meterstanden_bar(df)
+plot_meterstanden_line(df)
