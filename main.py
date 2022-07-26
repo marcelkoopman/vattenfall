@@ -1,8 +1,8 @@
 from lib2to3.pgen2.pgen import DFAState
 import pandas as pd
-import matplotlib.pyplot as plt
 from dataframe.extract import extract_from_csv
 from dataframe.transform import transform_meetdatum, transform_stroom, transform_teruglevering, drop_columns
+from view.plot import plot_meterstanden_bar
 
 def create_dataframe_from_csv():
     df = extract_from_csv()
@@ -11,14 +11,6 @@ def create_dataframe_from_csv():
     df = transform_stroom(df)
     df = transform_teruglevering(df)
     df = df.iloc[1: , :]
-    # df.info()
-
-    # 
-    # df['pct_stroom'] = df['Stroom'].pct_change()
-    # df['pct_teruglevering'] = df['Teruglevering'].pct_change()
-    # df['diff_stroom'] = df['Stroom'].diff().abs()
-    # df['diff_teruglevering'] = df['Teruglevering'].diff().abs()
-    # df['median_teruglevering'] = df['diff_teruglevering'].median()
     df['Teruglevering_mean'] = df['Teruglevering_diff'].mean()
     df['Stroom_mean'] = df['Stroom_diff'].mean()
     return df
@@ -38,16 +30,7 @@ def select_minimum(df, column):
 df = create_dataframe_from_csv()
 print(f"Aantal records {len(df)}")
 df.to_csv('data/transformed.csv', index=False)
-x = df['Datum']
 df.set_index('Datum')
 print(df)
 
-ax = plt.subplot(111)
-ax.bar(x, df['Teruglevering_diff'], color='yellow')
-ax.bar(x, df['Stroom_diff'], color='blue')
-ax.xaxis_date()
-
-plt.plot(x, df['Teruglevering_mean'], label='Teruglevering gemiddelde', color='black')
-plt.plot(x, df['Stroom_mean'], label='Stroomverbruik gemiddelde', color='red')
-plt.legend()
-plt.show()
+plot_meterstanden_bar(df)
