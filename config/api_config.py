@@ -1,0 +1,3 @@
+# commodities-api
+api_key="hs5t9d9eqhs1f0usxzxal58d880rr7tbj2s5zrmud67zg5elxdax4jh11bwr"
+

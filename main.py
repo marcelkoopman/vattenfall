@@ -27,10 +27,13 @@ def select_minimum(df, column):
     print(f"Min {column}: {minimun}")
     return minimun
 
-df = create_dataframe_from_csv()
-print(f"Aantal records {len(df)}")
-df.to_csv('data/transformed.csv', index=False)
-df.set_index('Datum')
-print(df)
+def main():
+    df = create_dataframe_from_csv()
+    print(f"Aantal records {len(df)}")
+    df.to_csv('data/transformed.csv', index=False)
+    df.set_index('Datum')
+    print(df)
+    plot_meterstanden_line(df)
 
-plot_meterstanden_line(df)
+if __name__ == '__main__':
+    main()
