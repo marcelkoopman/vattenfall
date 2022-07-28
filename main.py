@@ -1,8 +1,8 @@
-from lib2to3.pgen2.pgen import DFAState
 import pandas as pd
 from dataframe.extract import extract_from_csv
 from dataframe.transform import transform_meetdatum, transform_stroom, transform_teruglevering, drop_columns
 from view.plot import plot_meterstanden_line
+import logging
 
 def create_dataframe_from_csv():
     df = extract_from_csv()
@@ -18,21 +18,25 @@ def create_dataframe_from_csv():
 def select_maximum(df, column):
     maxidx = df[column].idxmax()
     maximmum = df.loc[maxidx]
-    print(f"Max {column}: {maximmum}")
+    logging.info(f"Max {column}: {maximmum}")
     return maximmum
 
 def select_minimum(df, column):
     minidx = df[column].idxmin()
     minimun = df.loc[minidx]
-    print(f"Min {column}: {minimun}")
+    logging.info(f"Min {column}: {minimun}")
     return minimun
 
 def main():
+    logging.basicConfig(format='%(asctime)s %(message)s', level = logging.INFO)
+    logging.info("Inlezen meterstanden.csv...")
     df = create_dataframe_from_csv()
-    print(f"Aantal records {len(df)}")
-    df.to_csv('data/transformed.csv', index=False)
+    logging.info(f"Aantal records {len(df)}")
+    transformed_file = 'transformed.csv'
+    df.to_csv(f'data/{transformed_file}', index=False)
+    logging.info(f"Zie {transformed_file}")
     df.set_index('Datum')
-    print(df)
+    logging.info(df)
     plot_meterstanden_line(df)
 
 if __name__ == '__main__':
