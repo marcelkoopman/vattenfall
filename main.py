@@ -2,6 +2,7 @@ import pandas as pd
 from dataframe.extract import extract_from_csv
 from dataframe.transform import transform_meetdatum, transform_stroom, transform_teruglevering, drop_columns
 from view.plot import plot_meterstanden_line
+import numpy as np
 import logging
 
 def create_dataframe_from_csv():
