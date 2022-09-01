@@ -8,7 +8,8 @@ import logging
 def create_dataframe_from_csv():
     df = extract_from_csv()
     df = drop_columns(df)
-    df = transform_meetdatum(df, start_date = '2022-05-26')
+    # df = transform_meetdatum(df, start_date = '2022-05-26')
+    df = transform_meetdatum(df, start_date = '2022-08-01')
     df = transform_stroom(df)
     df = transform_teruglevering(df)
     df = df.iloc[1: , :]
@@ -18,9 +19,9 @@ def create_dataframe_from_csv():
 
 def select_maximum(df, column):
     maxidx = df[column].idxmax()
-    maximmum = df.loc[maxidx]
-    logging.info(f"Max {column}: {maximmum}")
-    return maximmum
+    maximum = df.loc[maxidx]
+    logging.info(f"Max {column}: {maximum}")
+    return maximum
 
 def select_minimum(df, column):
     minidx = df[column].idxmin()
