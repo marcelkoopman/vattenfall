@@ -19,15 +19,15 @@ def create_dataframe_from_csv():
 
 def select_maximum(df, column):
     maxidx = df[column].idxmax()
-    maximmum = df.loc[maxidx]
-    logging.info(f"Max {column}: {maximmum}")
-    return maximmum
+    maximum = df.loc[maxidx]
+    logging.info(f"Max {column}: {maximum}")
+    return maximum
 
 def select_minimum(df, column):
     minidx = df[column].idxmin()
-    minimun = df.loc[minidx]
-    logging.info(f"Min {column}: {minimun}")
-    return minimun
+    select_minimum = df.loc[minidx]
+    logging.info(f"Min {column}: {select_minimum}")
+    return select_minimum
 
 def main():
     logging.basicConfig(format='%(asctime)s %(message)s', level = logging.INFO)
