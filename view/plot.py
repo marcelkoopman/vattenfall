@@ -7,7 +7,7 @@ def plot_meterstanden_line(df):
     stroom = df['Stroom_diff']
     terug = df['Teruglevering_diff']
 
-    fig, ax = plt.subplots(figsize=(8, 8))
+    fig, ax = plt.subplots(figsize=(9, 9))
     ax.plot(datum, stroom)
     ax.plot(datum, terug)
 

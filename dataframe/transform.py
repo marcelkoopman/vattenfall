@@ -15,13 +15,17 @@ def drop_columns(df):
     return df.drop(['Gas 1 (m³)', 'Opmerkingen'], axis='columns')
 
 def transform_stroom(df):
-    df['Stroom'] = df['Stroom 1 (kWh)'] + df['Stroom 2 (kWh)']
+    stroom1 = df['Stroom 1 (kWh)'].astype(float)
+    stroom2 = df['Stroom 2 (kWh)'].astype(float)
+    df['Stroom'] = stroom1 + stroom2
     df['Stroom_diff'] = df['Stroom'].diff().abs()
-    return df.drop(['Stroom 1 (kWh)','Stroom 2 (kWh)', 'Stroom'], axis='columns')
+    df = df.drop(['Stroom 1 (kWh)','Stroom 2 (kWh)', 'Stroom'], axis='columns')
+    return df
 
 def transform_teruglevering(df):
-    df['Teruglevering'] = df['Teruglevering 1 (kWh)'] + df['Teruglevering 2 (kWh)']
+    terug1 = df['Teruglevering 1 (kWh)'].astype(float)
+    terug2 = df['Teruglevering 2 (kWh)'].astype(float)
+    df['Teruglevering'] = terug1 + terug2
     df['Teruglevering_diff'] = df['Teruglevering'].diff().abs()
-    return df.drop(['Teruglevering 1 (kWh)','Teruglevering 2 (kWh)', 'Teruglevering'], axis='columns')
-
-   
+    df = df.drop(['Teruglevering 1 (kWh)','Teruglevering 2 (kWh)', 'Teruglevering'], axis='columns')
+    return df

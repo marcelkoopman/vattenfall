@@ -8,7 +8,8 @@ import logging
 def create_dataframe_from_csv():
     df = extract_from_csv()
     df = drop_columns(df)
-    df = transform_meetdatum(df, start_date = '2022-05-26')
+    start_datum = '2022-05-26'
+    df = transform_meetdatum(df, start_date = start_datum)
     df = transform_stroom(df)
     df = transform_teruglevering(df)
     df = df.iloc[1: , :]
