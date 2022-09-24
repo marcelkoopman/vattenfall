@@ -35,7 +35,7 @@ def select_minimum(df, column):
 
 def main():
     logging.basicConfig(format="%(asctime)s %(message)s", level=logging.INFO)
-    logging.info("Inlezen meterstanden.csv...")
+    logging.info("Inlezen meterstanden.csv ...")
     df = create_dataframe_from_csv()
     logging.info(f"Aantal records {len(df)}")
     transformed_file = "transformed.csv"
