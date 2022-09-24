@@ -1,5 +1,6 @@
-import pandas as pd
 import locale
+
+import pandas as pd
 
 locale.setlocale(locale.LC_ALL, "nl_NL")
 

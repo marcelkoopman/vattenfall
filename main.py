@@ -1,12 +1,9 @@
-from dataframe.extract import extract_from_csv
-from dataframe.transform import (
-    transform_meetdatum,
-    transform_stroom,
-    transform_teruglevering,
-    drop_columns,
-)
-from view.plot import plot_meterstanden_line
 import logging
+
+from dataframe.extract import extract_from_csv
+from dataframe.transform import (drop_columns, transform_meetdatum,
+                                 transform_stroom, transform_teruglevering)
+from view.plot import plot_meterstanden_line
 
 
 def create_dataframe_from_csv():
